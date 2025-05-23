@@ -155,12 +155,11 @@
 
 .flow-page body {
   margin: 0;
-  min-height: 100vh;
-  /* background-color: var(--color-bg-darker); */
-  background: transparent;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
   color: var(--text-light);
   font-family: "Roboto", 'Segoe UI', 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: hidden;
 }
 
 .flow-page .page-container {
@@ -168,6 +167,9 @@
   width: 100%;
   margin: 0 auto;
   position: relative;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
 }
 
 .flow-page .wrapper {
@@ -175,7 +177,9 @@
   justify-content: space-between; /* Adjusted for 3 columns */
   align-items: flex-start; /* Align columns to the top */
   position: relative;
-  min-height: calc(100vh - 140px);
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
 }
 
 .flow-page .column {
@@ -393,9 +397,9 @@
 
 .workflow-page body {
   margin: 0;
-  min-height: 100vh;
-  /* background-color: var(--color-bg-darker); */
-  background: transparent;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
   color: var(--color-text-white);
   font-family: "Roboto", 'Segoe UI', 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: auto;

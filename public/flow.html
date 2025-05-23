@@ -117,6 +117,8 @@
 
 <script src="combinedscript.js"></script>
 
+
+
 <script>
   function postIframeHeight() {
     const height = document.documentElement.scrollHeight;
@@ -126,7 +128,7 @@
 
   window.addEventListener('load', postIframeHeight);
   window.addEventListener('resize', postIframeHeight);
-  setTimeout(postIframeHeight, 1000); // fallback for async rendering
+  setTimeout(postIframeHeight, 1000); // fallback
 </script>
 
 
