@@ -120,12 +120,13 @@
 <script>
   function postIframeHeight() {
     const height = document.documentElement.scrollHeight;
-    window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+    const id = window.location.pathname.includes("workflow") ? "hubbleWorkflow" : "hubbleFlow";
+    window.parent.postMessage({ type: 'resize-iframe', id, height }, '*');
   }
 
   window.addEventListener('load', postIframeHeight);
   window.addEventListener('resize', postIframeHeight);
-  setTimeout(postIframeHeight, 1000); // fallback for late rendering
+  setTimeout(postIframeHeight, 1000); // fallback for async rendering
 </script>
 
 
