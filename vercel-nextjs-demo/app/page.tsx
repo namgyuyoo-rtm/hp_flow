@@ -44,6 +44,20 @@ export default function Home() {
           >
             Read our docs
           </a>
+          <a
+            href="/flow.html"
+            className={styles.primary}
+            style={{ marginTop: '1rem' }}
+          >
+            Go to Flow
+          </a>
+          <a
+            href="/workflow.html"
+            className={styles.secondary}
+            style={{ marginTop: '1rem' }}
+          >
+            Go to Workflow
+          </a>
         </div>
       </main>
       <footer className={styles.footer}>

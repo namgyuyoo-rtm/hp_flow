@@ -81,6 +81,12 @@
   font-weight: 500;
 }
 
+.primary,
+.secondary {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
 a.primary {
   background: var(--foreground);
   color: var(--background);
