@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Vercel 배포 안내
 
-- **루트 디렉토리**: 이 프로젝트의 루트는 `vercel-nextjs-demo`입니다. Vercel에서 프로젝트를 생성할 때 Root Directory를 `vercel-nextjs-demo`로 지정하세요.
+- **루트 디렉토리**: 이 프로젝트의 루트는 `hp_flow`입니다. Vercel에서 프로젝트를 생성할 때 Root Directory를 `hp_flow`로 지정하세요.
 - **Node.js 버전**: Next.js 15.x는 Node.js 18.18.0 이상이 필요합니다. Vercel은 기본적으로 최신 LTS를 사용합니다.
 - **정적 파일 접근**: `/public/flow.html`, `/public/workflow.html`은 `/flow.html`, `/workflow.html`로 접근 가능합니다.
 - **환경 변수**: 환경 변수가 필요하다면 Vercel의 환경 변수 설정을 활용하세요.
