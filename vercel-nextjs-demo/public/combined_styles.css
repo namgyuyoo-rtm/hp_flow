@@ -1,0 +1,1693 @@
+/* Global Styles and Keyframes */
+:root {
+  /* Primary colors */
+  --color-orange: #FC6707;
+  --color-cyan: #00FFD0;
+  --color-yellow: #FFC94A;
+  --color-blue: #0A6CFF;
+
+  /* Background colors */
+  --color-bg-dark: #161A1D;
+  --color-bg-darker: #0D1013;
+  --color-bg-light: #A8B2D1;
+  --color-bg-node: rgba(42, 50, 56, 0.4);
+  --color-bg-node-dark: rgba(24, 28, 32, 0.8);
+  --color-bg-rt-dark: rgba(10, 108, 255, 0.10);
+  --color-bg-rt-darker: rgba(10, 108, 255, 0.18);
+
+  /* Text colors */
+  --color-text-light: #F0F4F8;
+  --color-text-white: #FFFFFF;
+  --color-text-secondary: #A8B2D1;
+  --color-text-blue: #D0D8FF;
+  --color-text-cyan: #EAFFFA;
+  --color-text-hover: #FFC94A;
+  
+  /* Border and shadow colors */
+  --color-border-orange: rgba(252, 103, 7, 0.3);
+  --color-shadow-orange: rgba(252, 103, 7, 0.15);
+  --color-shadow-orange-glow: rgba(252, 103, 7, 0.6);
+  --color-border-gray: rgba(96, 96, 96, 0.6);
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-path-stroke: #606060;
+  --color-path-glow: rgba(150, 150, 150, 0.2);
+  
+  /* Marker sizes */
+  --marker-size-small: 3px;
+  --marker-size-medium: 2.5px;
+  --marker-size-large: 3px;
+  --marker-diamond-size: 3px;
+  
+  /* Path styles */
+  --path-stroke-width: 1.5px;
+  --path-dash-array: 7 5;
+  
+  /* RTM Circle styles */
+  --rtm-circle-width: 110px;
+  --rtm-circle-height: 110px;
+  --rtm-circle-bg: #22282C;
+  --rtm-circle-border: 3px;
+  --rtm-circle-glow: rgba(252, 103, 7, 0.4);
+  --rtm-circle-font-size-main: 1.5rem;
+  --rtm-circle-font-size-sub: 1.7rem;
+  
+  /* Standardized glow effects */
+  --glow-outer: 20px;
+  --glow-outer-spread: 5px;
+  --glow-inner: 8px;
+  --glow-inner-spread: 2px;
+  --glow-orange: rgba(252, 103, 7, 0.4);
+  --glow-cyan: rgba(0, 255, 208, 0.4);
+  
+  /* Unified heading styles */
+  --heading-font-size: 1.3rem;
+  --heading-font-weight: 700;
+  --heading-margin: 0 0 5px 0;
+  --heading-text-shadow: none;
+  --heading-color: var(--color-orange);
+  
+  /* Unified paragraph styles */
+  --para-font-size: 0.95rem;
+  --para-font-weight: 400; 
+  --para-margin: 0;
+  --para-line-height: 1.4;
+  --para-text-shadow: none;
+  --para-color: var(--color-text-light);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 var(--glow-outer) var(--glow-outer-spread) var(--pulse-glow-color, var(--rtm-circle-glow)), 
+                0 0 var(--glow-inner) var(--glow-inner-spread) var(--pulse-glow-color, var(--rtm-circle-glow)) inset;
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 calc(var(--glow-outer) * 1.4) calc(var(--glow-outer-spread) * 1.5) var(--pulse-glow-color, var(--rtm-circle-glow)), 
+                0 0 calc(var(--glow-inner) * 1.5) calc(var(--glow-inner-spread) * 2) var(--pulse-glow-color, var(--rtm-circle-glow)) inset;
+  }
+}
+
+@keyframes subtlePulseCyan {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 var(--glow-outer) var(--glow-outer-spread) var(--color-cyan), 
+                0 0 var(--glow-inner) var(--glow-inner-spread) var(--color-cyan) inset;
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 calc(var(--glow-outer) * 1.4) calc(var(--glow-outer-spread) * 1.5) var(--color-cyan), 
+                0 0 calc(var(--glow-inner) * 1.5) calc(var(--glow-inner-spread) * 2) var(--color-cyan) inset;
+  }
+}
+
+@keyframes runtimePulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 32px 8px var(--color-cyan), 0 0 0 8px var(--color-bg-rt-dark);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.04);
+    box-shadow: 0 0 48px 16px var(--color-cyan), 0 0 0 12px rgba(10,108,255,0.13);
+  }
+}
+
+/* Flow Page Styles */
+.flow-page {
+  --bg-main: var(--color-bg-darker);
+  --primary-orange: var(--color-orange);
+  --text-light: var(--color-text-light);
+  
+  --node-text-color: var(--color-text-light);
+  --node-icon-color: var(--color-orange);
+  --node-text-hover-color: var(--color-yellow);
+  --node-border-color: var(--color-border-orange);
+  --node-border-hover-color: var(--color-orange);
+  --node-bg-color: var(--color-bg-node);
+  --node-box-shadow: var(--color-shadow-orange);
+
+  --marker-fill-color: var(--color-orange);
+  --marker-glow-color: var(--color-shadow-orange-glow);
+  --marker-diamond-stroke-color: var(--color-bg-darker);
+
+  --rtm-bg: #22282C;
+  --rtm-border-color: var(--color-orange);
+  --rtm-text-color: var(--color-text-light);
+  --rtm-glow-color: rgba(252, 103, 7, 0.4);
+  --subtitle-text-color: var(--color-text-secondary);
+  --highlight-underline-color: var(--color-orange);
+  --column-title-color: var(--color-orange);
+  --column-subtitle-color: var(--color-text-secondary);
+
+  --path-stroke-color: var(--color-path-stroke);
+  --path-stroke-glow-color: var(--color-path-glow);
+}
+
+.flow-page body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg-darker);
+  color: var(--text-light); /* Default text color changed */
+  font-family: "Roboto", 'Segoe UI', 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+.flow-page .page-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.flow-page .wrapper {
+  display: flex;
+  justify-content: space-between; /* Adjusted for 3 columns */
+  align-items: flex-start; /* Align columns to the top */
+  position: relative;
+  min-height: calc(100vh - 140px);
+}
+
+.flow-page .column {
+  display: flex;
+  flex-direction: column;
+  gap: 55px; /* MODIFIED: Increased gap to make side columns taller */
+  z-index: 2;
+  align-items: flex-start; 
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  padding: 0 25px; /* MODIFIED: Increased padding */
+}
+
+.flow-page .column-title-container {
+  margin-bottom: 20px;
+  padding-left: 5px;
+  align-items: center;
+}
+
+.flow-page .column-main-title {
+  /* Remove this duplicate style since it's handled by the unified style */
+}
+
+.flow-page .column-subtitle {
+  /* Removed override - using unified style */
+}
+
+.flow-page .rtm-capabilities {
+  margin-top: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 20px; 
+  max-width: 260px; /* Explicitly set to 260px */
+  padding: 20px 15px; 
+  background-color: var(--node-bg-color); 
+  border: 1.5px solid var(--node-border-color); 
+  border-radius: 10px;
+  box-shadow: 0 0 15px 5px var(--node-box-shadow); 
+}
+
+.flow-page #center-column-title.column-title-container {
+  text-align: center;
+  padding-left: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.flow-page .rtm-capabilities .node {
+  min-width: 180px; /* Explicitly set to 180px */
+}
+
+.flow-page #leftColumn .column-title-container {
+  text-align: left;
+  padding-left: 5px;
+}
+.flow-page #useCasesColumn .column-title-container {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 5px;
+}
+
+.flow-page .node {
+  background: var(--node-bg-color);
+  border: 1.5px solid var(--node-border-color);
+  box-shadow: 0 0 10px 2px var(--node-box-shadow);
+  backdrop-filter: blur(3px); 
+  padding: 12px 18px; 
+  border-radius: 8px;
+  display: flex;
+  align-items: center; /* Vertically center icon and text block */
+  gap: 10px; 
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 200px; 
+}
+
+.flow-page .node:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--node-border-hover-color);
+  box-shadow: 0 0 15px 4px var(--primary-orange);
+}
+
+.flow-page .node i { 
+  color: var(--node-icon-color);
+  font-size: 1.2em;
+  transition: color 0.2s ease;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.flow-page .node-text-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 3px; /* Small gap between title and subtitle */
+}
+
+.flow-page .node-text-content span:first-child {
+  color: var(--node-text-color);
+  font-size: 0.95rem;
+  font-weight: 500; /* Slightly bolder main title */
+  transition: color 0.2s ease;
+}
+
+.flow-page .node-text-content .node-subtitle {
+  color: var(--subtitle-text-color); /* Use a dimmer color */
+  font-size: 0.75rem;
+  font-weight: 300; /* Lighter weight for subtitle */
+  transition: color 0.2s ease;
+}
+
+.flow-page .node:hover .node-text-content span:first-child {
+  color: var(--node-text-hover-color);
+}
+
+.flow-page .node .icon-placeholder {
+  width: 24px;
+  height: 24px;
+}
+
+.flow-page .center {
+  position: relative;
+  z-index: 2;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  flex-grow: 1.5;
+  flex-shrink: 1;
+  flex-basis: 0;
+  padding: 0 25px;
+}
+
+.flow-page .rtm-circle {
+  /* Only keep overrides that are different from the unified style */
+  --rtm-circle-glow: var(--rtm-glow-color);
+  margin-bottom: 0;
+}
+
+.flow-page svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flow-page svg path {
+  fill: none;
+  stroke: var(--path-stroke-color);
+  stroke-width: var(--path-stroke-width);
+  filter: drop-shadow(0 0 4px var(--path-stroke-glow-color));
+}
+
+.flow-page svg path.dashed {
+  stroke-dasharray: var(--path-dash-array);
+}
+
+.flow-page svg .marker-diamond {
+  fill: var(--marker-fill-color);
+  stroke: var(--marker-diamond-stroke-color);
+  stroke-width: 0.5;
+  filter: drop-shadow(0 0 2px var(--marker-glow-color));
+}
+
+.flow-page svg .marker-circle {
+  fill: var(--marker-fill-color);
+  r: var(--marker-size-small);
+  filter: drop-shadow(0 0 2px var(--marker-glow-color));
+}
+
+.flow-page .rtm-subtitle {
+  color: var(--subtitle-text-color);
+  font-size: 1.05rem; 
+  font-weight: 400; 
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.flow-page .rtm-subtitle .highlight-text {
+  color: var(--text-light);
+  padding-bottom: 1px;
+  font-weight: 500;
+}
+
+
+/* Styles from workflow.html, scoped with .workflow-page */
+.workflow-page {
+  /* Use direct color values from the global palette */
+  --bg-main: var(--color-bg-dark);
+  --primary-orange: var(--color-orange);
+  --text-light: var(--color-text-light);
+  --node-bg-color: var(--color-bg-node);
+  --node-border-color: var(--color-border-orange);
+  --node-border-hover-color: var(--color-orange);
+  --node-box-shadow: var(--color-shadow-orange);
+  --node-text-color: var(--color-text-light);
+  --node-icon-color: var(--color-orange);
+  --node-text-hover-color: var(--color-yellow);
+  --subtitle-text-color: var(--color-text-secondary);
+  --highlight-underline-color: var(--color-orange);
+  --column-title-color: var(--color-orange);
+  --column-subtitle-color: var(--color-text-secondary);
+  --path-stroke-color: var(--color-path-stroke);
+  --path-stroke-glow-color: var(--color-path-glow);
+  --marker-fill-color: var(--color-orange);
+  --marker-glow-color: var(--color-shadow-orange-glow);
+  --marker-diamond-stroke-color: var(--color-bg-dark);
+  background-color: var(--color-bg-dark);
+}
+
+.workflow-page body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg-darker);
+  color: var(--color-text-white);
+  font-family: "Roboto", 'Segoe UI', 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: auto;
+}
+
+.workflow-page .workflow-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-width: 1024px;
+    position: relative;
+    z-index: 1;
+}
+
+.workflow-page .workflow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    position: relative;
+    z-index: 2;
+}
+
+.workflow-page .workflow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 0;
+    min-width: 300px;
+    max-width: 420px;
+    padding: 0 10px;
+    z-index: 2;
+    position: relative;
+}
+
+.workflow-page .workflow-col.center {
+    flex: 1.5 1 0;
+    max-width: 540px;
+    min-width: 340px;
+    align-items: stretch;
+    position: relative;
+}
+
+.workflow-page .column-title-container {
+    margin-bottom: 18px;
+}
+
+.workflow-page .column-main-title {
+    /* All styles are now handled by the unified selector */
+}
+
+.workflow-page .column-subtitle {
+    /* Removed override - using unified style */
+}
+
+.workflow-page .node-box,
+.workflow-page .runtime-capabilities-container,
+.workflow-page .workstation-section-group,
+.workflow-page .equipment-section {
+    padding: 12px 18px;
+    border: 2.5px solid rgba(96,96,96,0.35);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px 0 rgba(96,96,96,0.07);
+    backdrop-filter: blur(3px);
+}
+
+.workflow-page .node-box {
+    padding: 12px 12px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    min-width: 200px;
+    cursor: pointer;
+    position: relative;
+
+    border: 2.5px solid var(--color-border-gray);
+    box-shadow: 0 4px 15px 0 rgba(0,0,0,0.4);
+}
+
+.workflow-page .node-box:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: var(--color-orange);
+    box-shadow: 0 0 18px 5px var(--color-orange);
+    z-index: 3;
+}
+
+.workflow-page .node-box .fa-solid {
+    color: var(--color-text-secondary);
+    font-size: 1.5em;
+    margin-bottom: 8px;
+}
+
+.workflow-page .node-title {
+    color: var(--color-text-light);
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+    text-align: center;
+    transition: color 0.2s;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.workflow-page .node-box:hover .node-title {
+    color: var(--color-yellow);
+}
+
+.workflow-page .node-subtext {
+    color: var(--color-text-blue);
+    font-size: 0.92rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2px;
+    text-shadow: 0 0 4px rgba(208, 216, 255, 0.2);
+}
+
+.workflow-page .node-label {
+    color: var(--color-orange);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.workflow-page .workstation-block {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    position: relative;
+    min-width: 320px;
+    align-items: center;
+    width: 100%;
+}
+
+.workflow-page .workstation-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.workflow-page .workstation-section.runtime {
+
+    order: -2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.workflow-page .workstation-section.hardware {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+.workflow-page .workstation-section-title {
+    color: var(--color-orange);
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    margin-top: 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 10px rgba(252, 103, 7, 0.7);
+}
+
+.workflow-page .workstation-section-title i {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.workflow-page .workstation-section.runtime .workstation-section-title {
+    font-size: 1.15rem;
+    color: var(--color-orange);
+}
+
+.workflow-page .workstation-hw-row {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.workflow-page .workstation-hw-node {
+    background: var(--color-bg-node-dark);
+    border: 2.5px solid var(--color-path-stroke);
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 12px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 90px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.workflow-page .workstation-hw-node:hover {
+    transform: translateY(-3px) scale(1.04);
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 18px 6px var(--color-cyan);
+    z-index: 2;
+}
+
+.workflow-page .workstation-hw-node .fa-solid {
+    color: var(--color-text-secondary);
+    font-size: 1.25em;
+    margin-bottom: 4px;
+}
+
+.workflow-page .workstation-hw-title {
+    color: var(--color-text-light);
+    font-size: 0.98rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.workflow-page .workstation-hw-desc {
+    color: var(--color-text-blue);
+    font-size: 0.8rem;
+    text-align: center;
+    text-shadow: 0 0 4px rgba(208, 216, 255, 0.2);
+}
+
+.workflow-page .workstation-sw-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.workflow-page .workstation-sw-row {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(252, 103, 7, 0.15);
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.workflow-page .workstation-sw-row:hover {
+    background: rgba(252, 103, 7, 0.1);
+    border-color: rgba(252, 103, 7, 0.3);
+    transform: translateX(4px);
+}
+
+.workflow-page .workstation-sw-label {
+    color: var(--color-orange);
+    font-size: 1rem;
+    font-weight: 700;
+    min-width: 24px;
+    text-align: center;
+    background: rgba(252, 103, 7, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.workflow-page .workstation-sw-title {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+.workflow-page .workstation-sw-desc {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    margin-left: auto;
+    padding-left: 8px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.workflow-page .plc-block {
+    color: var(--color-text-secondary);
+    background: var(--color-bg-node-dark);
+    border: 2.5px solid var(--color-path-stroke);
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 18px 20px 16px 20px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.workflow-page .plc-block:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: var(--color-orange);
+    box-shadow: 0 0 20px 6px var(--color-orange);
+    z-index: 3;
+}
+
+.workflow-page .plc-title {
+    color: var(--color-text-light);
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.workflow-page .plc-desc {
+    color: var(--color-text-blue);
+    font-size: 0.92rem;
+    text-align: center;
+    text-shadow: 0 0 4px rgba(208, 216, 255, 0.2);
+}
+
+.workflow-page .equipment-row {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.workflow-page .equipment-node {
+    background: var(--color-bg-node-dark);
+    border: 2.5px solid var(--color-path-stroke);
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 12px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 90px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.workflow-page .equipment-node:hover {
+    transform: translateY(-3px) scale(1.04);
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 18px 6px var(--color-cyan);
+    z-index: 2;
+}
+
+.workflow-page .equipment-node .fa-solid {
+    color: var(--color-cyan);
+    font-size: 1.25em;
+    margin-bottom: 4px;
+}
+
+.workflow-page .equipment-title {
+    color: var(--color-text-light);
+    font-size: 0.98rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.workflow-page .equipment-desc {
+    color: var(--color-text-blue);
+    font-size: 0.8rem;
+    text-align: center;
+    text-shadow: 0 0 4px rgba(208, 216, 255, 0.2);
+}
+
+.workflow-page .workflow-svg path {
+    fill: none;
+    stroke: var(--path-stroke-color);
+    stroke-width: var(--path-stroke-width);
+    filter: drop-shadow(0 0 4px var(--path-stroke-glow-color));
+}
+
+.workflow-page .workflow-svg path.dashed {
+    stroke-dasharray: var(--path-dash-array);
+}
+
+.workflow-page .marker-circle {
+    fill: var(--marker-fill-color);
+    r: var(--marker-size-medium);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px var(--marker-glow-color));
+}
+
+.workflow-page .marker-diamond {
+    fill: var(--marker-fill-color);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 2px var(--marker-glow-color));
+}
+
+.workflow-page .runtime-capabilities-container {
+    padding: 24px 18px 18px 18px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 480px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.workflow-page .workstation-section-group:hover {
+    box-shadow: 0 0 18px 5px #00FFD0, 0 0 0 6px rgba(0,255,208,0.13);
+    z-index: 3;
+    transform: scale(1.03);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.workflow-page .fusion-glow {
+    width: 100%;
+    height: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.workflow-page .fusion-glow::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -1px;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 0;
+    border-radius: 2px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.workflow-page .runtime-capabilities {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    height: 340px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    z-index: 2;
+}
+
+.workflow-page .runtime-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.workflow-page .circle-center-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 0px;
+}
+
+.workflow-page .runtime-circle {
+    position: static;
+    margin-bottom: 14px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-blue) 100%);
+    box-shadow: 0 0 32px 8px var(--color-cyan), 0 0 0 8px var(--color-bg-rt-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-white);
+    border: 3.5px solid var(--color-cyan);
+    text-align: center;
+    font-family: 'Roboto', 'Pretendard', system-ui, sans-serif;
+}
+
+.workflow-page .runtime-circle i {
+    font-size: 2.1rem;
+    margin-bottom: 6px;
+    color: var(--color-text-white);
+    text-shadow: 0 0 8px var(--color-cyan);
+}
+
+.workflow-page .runtime-main-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 2px;
+    color: var(--color-text-white);
+    text-shadow: 0 0 8px var(--color-cyan);
+}
+
+.workflow-page .runtime-subtext {
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: var(--color-text-cyan);
+    opacity: 0.92;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 6px var(--color-cyan);
+}
+
+.workflow-page .runtime-node {
+    position: absolute;
+    width: 110px;
+    min-height: 70px;
+    background: var(--color-bg-rt-dark);
+    border: 2.5px solid var(--color-cyan);
+    border-radius: 12px;
+    box-shadow: 0 0 12px 2px rgba(0, 255, 208, 0.2), 0 0 0 2px rgba(0, 255, 208, 0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 8px 10px 8px;
+    z-index: 3;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+    color: var(--color-text-cyan);
+    font-family: 'Roboto', 'Pretendard', system-ui, sans-serif;
+    cursor: pointer;
+}
+
+.workflow-page .runtime-node:hover {
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 18px 6px var(--color-cyan), 0 0 0 4px rgba(0, 255, 208, 0.07);
+    background: var(--color-bg-rt-darker);
+    color: var(--color-text-white);
+}
+
+.workflow-page .runtime-node i {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+    color: var(--color-cyan);
+    text-shadow: 0 0 6px var(--color-cyan);
+}
+
+.workflow-page .runtime-node-title {
+    font-size: 1.01rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: var(--color-text-white);
+    text-shadow: 0 0 4px var(--color-cyan);
+}
+
+.workflow-page .runtime-node-desc {
+    font-size: 0.87rem;
+    color: var(--color-text-cyan);
+    opacity: 0.85;
+    text-align: center;
+}
+
+.workflow-page #sw-model { left: 50%; top: 7%; transform: translate(-50%, 0); }
+.workflow-page #sw-input { left: 88%; top: 38%; transform: translate(-100%, 0); }
+.workflow-page #sw-infer { left: 50%; top: 87%; transform: translate(-50%, -100%); }
+.workflow-page #sw-result { left: 12%; top: 38%; transform: translate(0, 0); }
+.workflow-page #sw-judge { left: 50%; top: 47%; transform: translate(-50%, 0); }
+
+
+.workflow-page .rtm-circle {
+    /* Only keep overrides that are different from the unified style */
+    --rtm-circle-glow: rgba(252, 103, 7, 0.4);
+    margin-bottom: 14px;
+    position: static;
+}
+
+.workflow-page .rtm-circle--engine {
+    background: rgba(40, 22, 10, 0.8);
+    border: var(--rtm-circle-border) solid var(--color-orange);
+    --pulse-glow-color: var(--glow-orange);
+    box-shadow: 0 0 var(--glow-outer) var(--glow-outer-spread) var(--color-orange), 
+                0 0 var(--glow-inner) var(--glow-inner-spread) var(--color-orange) inset;
+    animation: subtlePulse 3s infinite ease-in-out;
+}
+
+.workflow-page .rtm-circle--engine::before {
+    background: conic-gradient(from 180deg at 50% 50%, var(--color-orange) 0%, var(--glow-orange) 60%, var(--color-orange) 100%);
+}
+
+.workflow-page .rtm-circle--runtime {
+    background: rgba(10, 30, 28, 0.8);
+    border: var(--rtm-circle-border) solid var(--color-cyan);
+    --pulse-glow-color: var(--glow-cyan);
+    box-shadow: 0 0 var(--glow-outer) var(--glow-outer-spread) var(--color-cyan), 
+                0 0 var(--glow-inner) var(--glow-inner-spread) var(--color-cyan) inset;
+    animation: subtlePulse 3s infinite ease-in-out;
+}
+
+.workflow-page .rtm-circle--runtime::before {
+    background: conic-gradient(from 180deg at 50% 50%, var(--color-cyan) 0%, var(--glow-cyan) 60%, var(--color-cyan) 100%);
+}
+
+.workflow-page .rtm-feature-list {
+    padding: 0;
+    border: 0;
+    gap: 0;
+}
+
+.workflow-page .rtm-feature-box,
+.workflow-page .runtime-feature-row {
+    background: rgba(24,28,32,0.8);
+    border: 2px solid rgba(96,96,96,0.7);
+    box-shadow: 0 4px 12px 0 rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 12px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.workflow-page .rtm-feature-box:hover,
+.workflow-page .runtime-feature-row:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--primary-orange);
+  box-shadow: 0 0 15px 5px var(--primary-orange);
+  z-index: 2;
+}
+
+.workflow-page .rtm-feature-box i,
+.workflow-page .runtime-feature-row i {
+  color: #A8B2D1;
+  font-size: 1.25em;
+  margin-bottom: 0;
+  min-width: 22px;
+  text-align: center;
+}
+
+.workflow-page .rtm-feature-title,
+.workflow-page .runtime-feature-title {
+  color: var(--node-text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-right: 4px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+.workflow-page .rtm-feature-desc,
+.workflow-page .runtime-feature-desc {
+  color: var(--subtitle-text-color);
+  font-size: 0.85rem;
+  margin-left: auto;
+  text-align: right;
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.workflow-page .rtm-detail-sub {
+  color: var(--color-yellow);
+  font-size: 0.93em;
+  font-weight: 400;
+}
+.workflow-page .rtm-mini-desc {
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .workflow-page .workflow-container { max-width: 100vw; }
+  .workflow-page .workflow-row { gap: 12px; }
+  .workflow-page .workflow-col, .workflow-page .workflow-col.center { min-width: 180px; max-width: 100vw; }
+  .workflow-page .workstation-block { min-width: 200px; }
+}
+
+@media (max-width: 900px) {
+  .workflow-page .workflow-row { flex-direction: column; align-items: stretch; gap: 32px; }
+  .workflow-page .workflow-col, .workflow-page .workflow-col.center { max-width: 100vw; min-width: 0; }
+  .workflow-page .workstation-block { min-width: 0; }
+  .workflow-page .equipment-row { flex-direction: column; gap: 10px; }
+  .workflow-page .workstation-hw-row { flex-direction: column; gap: 10px; }
+  
+  .workflow-page .runtime-capabilities { min-height: 260px; height: 260px; }
+  
+  /* 서클 스타일 768px와 통일 */
+  .workflow-page .rtm-circle,
+  .workflow-page .rtm-circle--engine, 
+  .workflow-page .rtm-circle--runtime,
+  .workflow-page .runtime-circle {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1/1;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto 15px auto;
+    
+    /* 그림자 효과와 애니메이션 유지 */
+    box-shadow: 0 0 18px 6px var(--rtm-circle-glow);
+    animation: subtlePulse 4s infinite ease-in-out;
+    
+    /* 테두리 굵기 */
+    border-width: 2px;
+  }
+  
+  /* 텍스트 조정 */
+  .workflow-page .rtm-circle div:first-child,
+  .workflow-page .rtm-circle--engine div:first-child,
+  .workflow-page .rtm-circle--runtime div:first-child,
+  .workflow-page .runtime-main-text {
+    font-size: 0.9rem;
+  }
+  
+  .workflow-page .rtm-circle .rtm-circle-subtext,
+  .workflow-page .rtm-circle--runtime .rtm-circle-subtext,
+  .workflow-page .runtime-subtext {
+    font-size: 1.05rem;
+  }
+  
+  .workflow-page .runtime-node { width: 80px; min-height: 54px; font-size: 0.9rem; padding: 8px 4px 6px 4px; }
+  .workflow-page #sw-model { top: 5%; }
+  .workflow-page #sw-infer { top: 90%; }
+  .workflow-page #sw-judge { top: 60%; }
+  
+  /* 워크플로우 768px와 일관성 유지 */
+  .workflow-page .node-box,
+  .workflow-page .workstation-hw-node,
+  .workflow-page .runtime-node {
+    min-height: 60px;
+    padding: 15px 12px;
+    margin-bottom: 15px;
+  }
+  
+  .workflow-page .node-box .fa-solid,
+  .workflow-page .workstation-hw-node .fa-solid {
+    font-size: 1.8em;
+  }
+  
+  .workflow-page .workstation-sw-row {
+    padding: 15px 12px;
+    margin-bottom: 12px;
+  }
+  
+  /* 제어 및 설비 요소들 너비 통일 */
+  .workflow-page .plc-block,
+  .workflow-page .equipment-node,
+  .workflow-page .workstation-hw-node {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 15px 10px;
+  }
+  
+  /* 설비 컨테이너 너비 통일 */
+  .workflow-page .equipment-row,
+  .workflow-page .workstation-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  /* 아이콘과 텍스트 정렬 */
+  .workflow-page .equipment-title,
+  .workflow-page .workstation-hw-title {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  /* equipment-section 일관성 맞추기 */
+  .workflow-page .equipment-section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .workflow-page .node-title,
+  .workflow-page .workstation-section-title,
+  .workflow-page .runtime-node-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .workflow-page .node-subtext,
+  .workflow-page .workstation-hw-desc,
+  .workflow-page .runtime-node-desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .workflow-page .workflow-col {
+    order: 2;
+  }
+  
+  .workflow-page .workflow-col.center {
+    order: 1; /* 중앙 컬럼 먼저 표시 */
+    margin-bottom: 30px;
+  }
+  
+  .workflow-page .workflow-container {
+    padding: 20px 15px;
+    max-width: 100%;
+    min-width: auto;
+  }
+  
+  .workflow-page .runtime-capabilities { min-height: 260px; height: 260px; }
+  .workflow-page .runtime-circle { width: 80px; height: 80px; font-size: 0.95rem; }
+  .workflow-page .runtime-node { width: 80px; min-height: 54px; font-size: 0.9rem; padding: 8px 4px 6px 4px; }
+  .workflow-page #sw-model { top: 5%; }
+  .workflow-page #sw-infer { top: 90%; }
+  .workflow-page #sw-judge { top: 60%; }
+  
+  .workflow-page .rtm-circle,
+  .workflow-page .rtm-circle--engine, 
+  .workflow-page .rtm-circle--runtime,
+  .workflow-page .runtime-circle {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1/1;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto 15px auto;
+    
+    /* 그림자 효과와 애니메이션 유지 */
+    box-shadow: 0 0 18px 6px var(--rtm-circle-glow);
+    animation: subtlePulse 4s infinite ease-in-out;
+    
+    /* 테두리 굵기 */
+    border-width: 2px;
+  }
+  
+  /* 텍스트 조정 */
+  .workflow-page .rtm-circle div:first-child,
+  .workflow-page .rtm-circle--engine div:first-child,
+  .workflow-page .rtm-circle--runtime div:first-child,
+  .workflow-page .runtime-main-text {
+    font-size: 0.9rem;
+  }
+  
+  .workflow-page .rtm-circle .rtm-circle-subtext,
+  .workflow-page .rtm-circle--runtime .rtm-circle-subtext,
+  .workflow-page .runtime-subtext {
+    font-size: 1.05rem;
+  }
+  
+  .workflow-page .rtm-circle--engine::before,
+  .workflow-page .rtm-circle--runtime::before,
+  .workflow-page .fusion-glow::after,
+  .workflow-page .fusion-glow {
+    display: none;
+  }
+  
+  .workflow-page .workflow-svg {
+    display: none;
+  }
+  
+  .workflow-page .node-box,
+  .workflow-page .workstation-hw-node,
+  .workflow-page .runtime-node {
+    min-height: 60px;
+    padding: 15px 12px;
+    margin-bottom: 15px;
+  }
+  
+  .workflow-page .node-box .fa-solid,
+  .workflow-page .workstation-hw-node .fa-solid {
+    font-size: 1.8em;
+  }
+  
+  .workflow-page .workstation-sw-row {
+    padding: 15px 12px;
+    margin-bottom: 12px;
+  }
+  
+  /* 제어 및 설비 요소들 너비 통일 */
+  .workflow-page .plc-block,
+  .workflow-page .equipment-node,
+  .workflow-page .workstation-hw-node {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 15px 10px;
+  }
+  
+  /* 설비 컨테이너 너비 통일 */
+  .workflow-page .equipment-row,
+  .workflow-page .workstation-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  /* 아이콘과 텍스트 정렬 */
+  .workflow-page .equipment-title,
+  .workflow-page .workstation-hw-title {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  /* equipment-section 일관성 맞추기 */
+  .workflow-page .equipment-section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 12px;
+  }
+  
+  /* equipment-section 내부 요소 정렬 */
+  .workflow-page .equipment-section .workstation-section-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  /* equipment-section 내 설명 텍스트 */
+  .workflow-page .equipment-section .equipment-desc {
+    text-align: center;
+    width: 100%;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .workflow-page .rtm-circle,
+  .workflow-page .rtm-circle--engine, 
+  .workflow-page .rtm-circle--runtime,
+  .workflow-page .runtime-circle {
+    width: 110px;
+    height: 110px;
+    min-width: 110px;
+    min-height: 110px;
+    max-width: 110px;
+    max-height: 110px;
+    margin: 0 auto 20px auto;
+    
+    /* 그림자 효과 유지 (약간 줄임) */
+    box-shadow: 0 0 15px 5px var(--rtm-circle-glow);
+    
+    /* 애니메이션은 유지하되 간소화 */
+    animation: subtlePulse 4s infinite ease-in-out;
+    
+    /* 테두리 굵기 강화 */
+    border-width: 2.5px;
+  }
+  
+  /* ::before 효과 유지하되 단순화 */
+  .workflow-page .rtm-circle::before,
+  .workflow-page .rtm-circle-runtime::before {
+    display: block;
+    animation: spin 5s linear infinite;
+    opacity: 0.7;
+  }
+  
+  /* 텍스트 크기 조정 */
+  .workflow-page .rtm-circle-subtext,
+  .workflow-page .runtime-main-text {
+    font-size: 1rem;
+  }
+  
+  /* 극소형 화면에서 요소 패딩 조정 */
+  .workflow-page .plc-block,
+  .workflow-page .equipment-node,
+  .workflow-page .workstation-hw-node {
+    padding: 12px 8px;
+  }
+  
+  .workflow-page .equipment-section {
+    padding: 12px 8px;
+    margin-bottom: 15px;
+  }
+}
+
+.workflow-page .runtime-feature-row .rtm-mini-capabilities {
+  min-height: 48px;
+  padding: 13px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.workflow-page .runtime-feature-row#runtime-feature-1 {
+  box-shadow: inset 4px 0 8px rgba(252, 103, 7, 0.4), 0 0 8px rgba(252, 103, 7, 0.2);
+  border-left: 2px solid rgba(252, 103, 7, 0.7);
+  transition: box-shadow 0.8s ease, border-left 0.8s ease;
+}
+
+.workflow-page .runtime-feature-row#runtime-feature-2,
+.workflow-page .runtime-feature-row#runtime-feature-3 {
+  box-shadow: inset -4px 0 8px rgba(0, 255, 208, 0.4), 0 0 8px rgba(0, 255, 208, 0.2);
+  border-right: 2px solid rgba(0, 255, 208, 0.7);
+  transition: box-shadow 0.8s ease, border-right 0.8s ease;
+}
+
+/* Add these unified RTM circle styles at a global level (outside of any page-specific sections) */
+/* Unified RTM Circle Styles - Apply to both flow and workflow pages */
+.rtm-circle {
+  width: var(--rtm-circle-width);
+  height: var(--rtm-circle-height);
+  border-radius: 50%;
+  background: var(--rtm-circle-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--rtm-text-color, var(--color-text-light));
+  border: var(--rtm-circle-border) solid transparent;
+  position: relative;
+  box-shadow: 0 0 var(--glow-outer) var(--glow-outer-spread) var(--rtm-circle-glow), 
+              0 0 var(--glow-inner) var(--glow-inner-spread) var(--rtm-circle-glow) inset;
+  animation: subtlePulse 3s infinite ease-in-out;
+  line-height: 1.1;
+  text-align: center;
+  font-family: "Roboto", 'Segoe UI', 'Pretendard', system-ui, sans-serif;
+}
+
+.rtm-circle div:first-child,
+.rtm-circle > div:first-child {
+  font-weight: 500;
+  font-size: var(--rtm-circle-font-size-main);
+  color: var(--subtitle-text-color);
+}
+
+.rtm-circle .rtm-circle-subtext {
+  font-weight: 700;
+  font-size: var(--rtm-circle-font-size-sub);
+  margin-top: -2px;
+  color: var(--rtm-text-color, var(--color-text-light));
+  letter-spacing: 0.5px;
+}
+
+.rtm-circle::before {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from 180deg at 50% 50%, var(--primary-orange, var(--color-orange)) 0%, var(--rtm-circle-glow) 60%, var(--primary-orange, var(--color-orange)) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+          mask-composite: subtract;
+  animation: spin 4s linear infinite;
+  z-index: -1;
+}
+
+/* Map rtm-circle-runtime to use the unified styles */
+.workflow-page .rtm-circle-runtime {
+  /* Inherit all the base rtm-circle properties */
+  width: var(--rtm-circle-width);
+  height: var(--rtm-circle-height);
+  border-radius: 50%;
+  background: var(--rtm-circle-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--rtm-text-color, var(--color-text-light));
+  border: var(--rtm-circle-border) solid transparent;
+  position: relative;
+  line-height: 1.1;
+  text-align: center;
+  font-family: "Roboto", 'Segoe UI', 'Pretendard', system-ui, sans-serif;
+  margin-bottom: 8px;
+  
+  /* Runtime specific overrides with cyan color */
+  background: rgba(10, 30, 28, 0.8);
+  border: var(--rtm-circle-border) solid var(--color-cyan);
+  --pulse-glow-color: var(--glow-cyan);
+  box-shadow: 0 0 var(--glow-outer) var(--glow-outer-spread) var(--color-cyan), 
+              0 0 var(--glow-inner) var(--glow-inner-spread) var(--color-cyan) inset;
+  animation: subtlePulse 3s infinite ease-in-out;
+}
+
+/* Add the spinning border effect to rtm-circle-runtime */
+.workflow-page .rtm-circle-runtime::before {
+  content: '';
+  position: absolute;
+  top: -4px; left: -4px; right: -4px; bottom: -4px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from 180deg at 50% 50%, var(--color-cyan) 0%, var(--glow-cyan) 60%, var(--color-cyan) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+          mask-composite: subtract;
+  animation: spin 4s linear infinite;
+  z-index: -1;
+}
+
+/* Update rtm-circle-runtime children to match the unified style */
+.workflow-page .rtm-circle-runtime > div:first-child {
+  font-weight: 500;
+  font-size: var(--rtm-circle-font-size-main);
+  color: var(--subtitle-text-color);
+}
+
+.workflow-page .rtm-circle-runtime .rtm-circle-subtext {
+  font-weight: 700;
+  font-size: var(--rtm-circle-font-size-sub);
+  margin-top: -2px;
+  color: var(--rtm-text-color, var(--color-text-light));
+  letter-spacing: 0.5px;
+}
+
+/* Unified Column Title Container Style */
+.column-title-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Unified Column Main Title Style (h3) */
+.column-main-title {
+  font-size: var(--heading-font-size);
+  font-weight: var(--heading-font-weight);
+  color: var(--heading-color);
+  margin: var(--heading-margin);
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+/* Unified Column Subtitle Style (p) */
+.column-subtitle {
+  font-size: var(--para-font-size);
+  font-weight: var(--para-font-weight);
+  color: var(--para-color);
+  margin: var(--para-margin);
+  line-height: var(--para-line-height);
+  text-shadow: var(--para-text-shadow);
+}
+
+/* Flow page responsive styles */
+@media (max-width: 1200px) {
+  .flow-page .page-container {
+    max-width: 100vw;
+    padding: 0 20px;
+  }
+  
+  .flow-page .wrapper {
+    gap: 12px;
+  }
+  
+  .flow-page .column {
+    min-width: 180px;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .flow-page .wrapper {
+    flex-direction: column;
+    align-items: stretch; 
+    gap: 12px;
+  }
+  
+  .flow-page .column {
+    max-width: 100vw;
+    min-width: 0;
+    width: 100%;
+  }
+  
+  .flow-page .rtm-circle {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1/1;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto 15px auto;
+    box-shadow: 0 0 18px 6px var(--rtm-circle-glow);
+    animation: subtlePulse 4s infinite ease-in-out;
+    border-width: 2px;
+  }
+  
+  .flow-page svg {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .flow-page .column-title-container {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .flow-page .column-main-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .flow-page .column-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .flow-page .rtm-capabilities {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .flow-page .node i {
+    font-size: 1.8em;
+  }
+  
+  .flow-page .column {
+    order: 2;
+    padding: 0;
+  }
+  
+  .flow-page .center {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* 컬럼 내부 요소 간격 설정 */
+  .flow-page .column {
+    gap: 12px;
+  }
+  
+  /* 컬럼 간격 줄이기도 유지 */
+  .flow-page .wrapper {
+    gap: 20px;
+  }
+  
+  /* 1. 모바일 flow에서 node 가로폭 최대 */
+  .flow-page .node {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* 2. 모바일 flow에서 H3, p 가운데 정렬 */
+  .flow-page .column-main-title,
+  .flow-page .column-subtitle,
+  .flow-page #leftColumn .column-title-container,
+  .flow-page #useCasesColumn .column-title-container,
+  .flow-page #center-column-title.column-title-container {
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* 노드 텍스트도 중앙 정렬 */
+  .flow-page .node-text-content {
+    text-align: center;
+    justify-content: center;
+  }
+  
+  /* 노드 아이콘과 텍스트 정렬 개선 */
+  .flow-page .node {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .flow-page .rtm-circle {
+    width: 110px;
+    height: 110px;
+    min-width: 110px;
+    min-height: 110px;
+    max-width: 110px;
+    max-height: 110px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 0 15px 5px var(--rtm-circle-glow);
+    animation: subtlePulse 4s infinite ease-in-out;
+    border-width: 2.5px;
+  }
+  
+  .flow-page .node {
+    padding: 12px 8px;
+  }
+  
+  .flow-page .node-text-content span:first-child {
+    font-size: 1rem;
+  }
+  
+  .flow-page .node:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px 2px var(--color-orange);
+  }
+  
+  /* 600px 이하에서도 동일한 gap 유지 */
+  .flow-page .column {
+    gap: 12px;
+  }
+}
+
+
