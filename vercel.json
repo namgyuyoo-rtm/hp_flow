@@ -1,0 +1,10 @@
+{
+    "headers": [
+      {
+        "source": "/flow.html",
+        "headers": [
+          { "key": "X-Frame-Options", "value": "ALLOWALL" }
+        ]
+      }
+    ]
+  }
