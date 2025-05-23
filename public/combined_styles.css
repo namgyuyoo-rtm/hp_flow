@@ -418,7 +418,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 48px;
+  gap: 24px;
   position: relative;
   z-index: 2;
   flex-wrap: wrap; /* 줄바꿈 허용 */
@@ -1715,6 +1715,19 @@
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.flow-page .column,
+.workflow-page .workflow-col,
+.workflow-page .workflow-col.center {
+  padding-left: 8px;
+  padding-right: 8px;
+  max-width: 300px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.workflow-page .workflow-row {
+  gap: 16px;
 }
 
 
