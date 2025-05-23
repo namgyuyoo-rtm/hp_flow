@@ -116,14 +116,18 @@
 </div>
 
 <script src="combinedscript.js"></script>
+
 <script>
-  function sendHeight() {
+  function postIframeHeight() {
     const height = document.documentElement.scrollHeight;
-    parent.postMessage({ type: 'iframeHeight', height }, '*');
+    window.parent.postMessage({ type: 'resize-iframe', height }, '*');
   }
 
-  window.addEventListener('load', sendHeight);
-  window.addEventListener('resize', sendHeight);
+  window.addEventListener('load', postIframeHeight);
+  window.addEventListener('resize', postIframeHeight);
+  setTimeout(postIframeHeight, 1000); // fallback for late rendering
 </script>
+
+
 </body>
 </html>
