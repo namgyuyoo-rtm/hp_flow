@@ -1174,6 +1174,38 @@
     box-sizing: border-box;
     border-radius: 12px;
   }
+
+  .workflow-page #rtm-engine {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+  .workflow-page #rtm-engine > * {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  .workflow-page #equipment-section_id {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+  .workflow-page #equipment-section_id > * {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1826,6 +1858,27 @@
     padding: 10px 4px;
     box-sizing: border-box;
   }
+}
+
+@media (max-width: 900px) {
+  .flow-page #leftColumn,
+  .flow-page #useCasesColumn {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+  .flow-page #rtm-capabilities-container {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+
 }
 
 
