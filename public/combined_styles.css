@@ -408,30 +408,30 @@
 .workflow-page .workflow-container {
   max-width: 1024px;
   width: 100%;
-  margin: 0 auto;
+    margin: 0 auto;
   min-width: 0;
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .workflow-page .workflow-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   gap: 24px;
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
   flex-wrap: wrap; /* 줄바꿈 허용 */
 }
 
 .workflow-page .workflow-col,
 .workflow-page .workflow-col.center {
-  flex: 1 1 0;
+    flex: 1 1 0;
   min-width: 0;         /* 너무 커지지 않게 */
   max-width: 320px;     /* 한 컬럼 최대 320px */
   box-sizing: border-box;
-  z-index: 2;
-  position: relative;
+    z-index: 2;
+    position: relative;
   flex-shrink: 1;       /* 필요시 줄어들 수 있게 */
 }
 
@@ -1769,6 +1769,27 @@
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  html, body, .flow-page, .flow-page body, .page-container, .flow-page .wrapper {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .flow-page .wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .flow-page .column, .flow-page .center {
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+    max-width: 320px;
+    box-sizing: border-box;
+    padding: 0 16px;
   }
 }
 
