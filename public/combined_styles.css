@@ -1772,9 +1772,9 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 900px) {
   .flow-page .page-container {
-    min-height: 650px !important;
+    height: 650px !important;
   }
 }
 
