@@ -1772,24 +1772,9 @@
   }
 }
 
-@media (min-width: 1000px) {
-  html, body, .flow-page, .flow-page body, .page-container, .flow-page .wrapper {
-    min-height: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-  .flow-page .wrapper {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  .flow-page .column, .flow-page .center {
-    align-items: flex-start;
-    width: 100%;
-    min-width: 0;
-    max-width: 320px;
-    box-sizing: border-box;
-    padding: 0 16px;
+@media (min-width: 1024px) {
+  .flow-page .page-container {
+    min-height: 650px !important;
   }
 }
 
