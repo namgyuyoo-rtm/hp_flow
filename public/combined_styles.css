@@ -1206,6 +1206,10 @@
     margin-right: 0;
     box-sizing: border-box;
   }
+
+  .workflow-page #col-rtm { order: 1 !important; }
+  .workflow-page #col-workstation { order: 2 !important; }
+  .workflow-page #col-plc { order: 3 !important; }
 }
 
 @media (max-width: 768px) {
