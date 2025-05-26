@@ -1776,6 +1776,56 @@
   .flow-page .page-container {
     height: 650px !important;
   }
+
+  /* 큰 박스(섹션) 가로폭/패딩 통일 */
+  .workflow-page .workstation-section-group,
+  .workflow-page .equipment-section,
+  #rtm-engine {
+    width: 340px;
+    max-width: 340px;
+    min-width: 340px;
+    margin: 0 auto 24px auto;
+    padding: 20px 18px;
+    box-sizing: border-box;
+  }
+
+  /* 내부 주요 컴포넌트 가로폭 통일 */
+  .workflow-page .workstation-section-group > *,
+  .workflow-page .equipment-section > *,
+  #rtm-engine > * {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .workflow-page .plc-block,
+  .workflow-page .equipment-node,
+  .workflow-page .node-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .workflow-page .workstation-hw-row {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 0;
+    flex-wrap: nowrap;
+  }
+  .workflow-page .workstation-hw-node {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    width: 0;
+    padding: 10px 4px;
+    box-sizing: border-box;
+  }
 }
 
 
