@@ -1596,20 +1596,19 @@
 @media (max-width: 900px) {
   .flow-page .wrapper {
     flex-direction: column;
-    align-items: stretch; 
+    align-items: stretch;
     gap: 12px;
   }
-  
   .flow-page .column {
     max-width: 100vw;
     min-width: 0;
     width: 100%;
+    gap: 12px;
+    padding: 0;
   }
-  
   .flow-page .rtm-circle {
     width: 100px;
     height: 100px;
-    aspect-ratio: 1/1;
     min-width: 100px;
     min-height: 100px;
     max-width: 100px;
@@ -1619,9 +1618,26 @@
     animation: subtlePulse 4s infinite ease-in-out;
     border-width: 2px;
   }
-  
-  .flow-page svg {
-    display: none;
+  .flow-page .node {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 12px 8px;
+    justify-content: center;
+  }
+  .flow-page .node-text-content {
+    text-align: center;
+    justify-content: center;
+  }
+  .flow-page .column-title-container,
+  .flow-page .column-main-title,
+  .flow-page .column-subtitle {
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
