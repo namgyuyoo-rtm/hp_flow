@@ -1730,4 +1730,46 @@
   gap: 16px;
 }
 
+@media (max-width: 1000px) {
+  .workflow-page .workflow-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .workflow-page .workflow-col,
+  .workflow-page .workflow-col.center {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: center;
+  }
+  .workflow-page .node-box,
+  .workflow-page .runtime-feature-row,
+  .workflow-page .workstation-block,
+  .workflow-page .equipment-section,
+  .workflow-page .plc-block {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    align-items: center;
+  }
+  .workflow-page .column-title-container,
+  .workflow-page .column-main-title,
+  .workflow-page .column-subtitle {
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 

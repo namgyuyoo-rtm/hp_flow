@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="combined_styles.css"> 
 </head>
 <body class="flow-page" style="background-color: #000;">
-<div class="page-container">
-
-<div class="wrapper">
+<div class="page-container" style="min-height: auto !important; height: auto !important; overflow: visible !important;">
+<div class="wrapper" style="min-height: auto !important; height: auto !important; overflow: visible !important;">
   <!-- 좌측 노드 -->
   <div class="column" id="leftColumn">
     <div class="column-title-container">
@@ -112,12 +111,9 @@
   <!-- 선 및 점 SVG -->
   <svg id="flowSVG"></svg>
 </div>
-
 </div>
 
 <script src="combinedscript.js"></script>
-
-
 
 <script>
   function postIframeHeight() {
@@ -130,7 +126,6 @@
   window.addEventListener('resize', postIframeHeight);
   setTimeout(postIframeHeight, 1000); // fallback
 </script>
-
 
 </body>
 </html>
